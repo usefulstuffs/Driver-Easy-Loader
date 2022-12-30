@@ -91,6 +91,7 @@ namespace Driver_Easy_Loader
             {
                 MessageBox.Show("Make sure to quit Driver Easy, then hit OK to start patching","Driver Easy Loader by Vichingo455",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
+            checkBox1.Checked = false; //just to separate the if functions
             if (radioButton1.Checked)
             {
                 try
@@ -183,9 +184,9 @@ namespace Driver_Easy_Loader
                 {
                     File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Easeware\DriverEasy\License.dat");
                 }
-                if (Directory.Exists(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy"))
+                if (File.Exists(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy\License.dat"))
                 {
-                    Directory.Delete(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy");
+                    File.Delete(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy\License.dat");
                 }
             }
             catch
