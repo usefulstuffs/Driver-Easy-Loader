@@ -16,4 +16,4 @@ It's actually impossible if you downloaded this from the OFFICIAL repository. If
 then someone modified the source code and embedded malware. I'M NOT RESPONSIBLE FOR ANYTHING CAUSED BY DOWNLOADING
 THIS PROGRAM FROM 3RD PART SOURCES.
 
-##### Copyright (C) 2022 Vichingo455. All rights reserved
+##### Copyright (C) 2024 Useful Stuffs. All rights reserved
