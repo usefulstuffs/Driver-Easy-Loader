@@ -184,7 +184,7 @@ namespace Driver_Easy_Loader
                 {
                     File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Easeware\DriverEasy\License.dat");
                 }
-                if (File.Exists(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy\License.dat"))
+                if (File.Exists(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy\License.dat") && variables.isadmin)
                 {
                     File.Delete(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy\License.dat");
                 }

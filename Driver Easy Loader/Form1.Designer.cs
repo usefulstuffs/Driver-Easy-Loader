@@ -63,7 +63,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(10, 65);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(121, 13);
+            this.label4.Size = new System.Drawing.Size(142, 19);
             this.label4.TabIndex = 10;
             this.label4.Text = "Loader installed: {null}";
             // 
@@ -72,7 +72,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(10, 42);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 13);
+            this.label3.Size = new System.Drawing.Size(144, 19);
             this.label3.TabIndex = 9;
             this.label3.Text = "License installed: {null}";
             // 
@@ -81,7 +81,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(10, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 13);
+            this.label2.Size = new System.Drawing.Size(156, 19);
             this.label2.TabIndex = 8;
             this.label2.Text = "Running as admin: {null}";
             // 
@@ -114,7 +114,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(6, 88);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(152, 17);
+            this.checkBox1.Size = new System.Drawing.Size(183, 23);
             this.checkBox1.TabIndex = 3;
             this.checkBox1.Text = "Kill Driver Easy processes";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@
             this.radioButton3.AutoSize = true;
             this.radioButton3.Location = new System.Drawing.Point(6, 65);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(145, 17);
+            this.radioButton3.Size = new System.Drawing.Size(174, 23);
             this.radioButton3.TabIndex = 2;
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Install License + Loader";
@@ -135,7 +135,7 @@
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(6, 42);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(94, 17);
+            this.radioButton2.Size = new System.Drawing.Size(112, 23);
             this.radioButton2.TabIndex = 1;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Install Loader";
@@ -147,7 +147,7 @@
             this.radioButton1.Checked = true;
             this.radioButton1.Location = new System.Drawing.Point(6, 19);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(96, 17);
+            this.radioButton1.Size = new System.Drawing.Size(114, 23);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Install License";
@@ -180,13 +180,13 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(495, 186);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.Size = new System.Drawing.Size(91, 19);
             this.label1.TabIndex = 7;
             this.label1.Text = "Version: {null}";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 208);
             this.Controls.Add(this.label1);
@@ -200,7 +200,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Driver Easy Loader by Vichingo455";
+            this.Text = "Driver Easy Loader by Useful Stuffs";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
