@@ -24,50 +24,20 @@ namespace Driver_Easy_Loader
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string LoaderPath = @"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy\License.dat";
-            if (File.Exists(LoaderPath))
+            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Easeware\DriverEasy\License.dat"))
             {
-                variables.isloaderinstalled = true;
-            }
-            string licensepath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Easeware\DriverEasy\License.dat";
-            if (File.Exists(licensepath))
-            {
-                variables.islicenseinstalled = true;
-            }
-            label1.Text = "Version: " + Application.ProductVersion.ToString();
-            if (variables.isadmin)
-            {
-                label2.Text = "Running as admin: Yes";
-                button1.Visible = false;
-            }
-            else 
-            {
-                label2.Text = "Running as admin: No";
-                radioButton2.Enabled = false;
-                radioButton3.Enabled = false;
-                checkBox1.Enabled = false;
-            }
-            if (variables.islicenseinstalled)
-            {
-                label3.Text = "License installed: Yes";
+                label2.Text = "Driver Easy Status: Licensed";
             }
             else
             {
-                label3.Text = "License installed: No";
+                label2.Text = "Driver Easy Status: Free Version";
             }
-            if (variables.isloaderinstalled)
-            {
-                label4.Text = "Loader installed: Yes";
-            }
-            else
-            {
-                label4.Text = "Loader installed: No";
-            }
+            label1.Text = "Version: " + Application.ProductVersion;
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Some settings require admin privileges. To enable them, restart the program as administrator","Why are some settings unavailable?");
+        { 
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -91,69 +61,29 @@ namespace Driver_Easy_Loader
             {
                 MessageBox.Show("Make sure to quit Driver Easy, then hit OK to start patching","Driver Easy Loader by Vichingo455",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
-            checkBox1.Checked = false; //just to separate the if functions
-            if (radioButton1.Checked)
+            try
             {
-                try
+                string[] dirs = Directory.GetDirectories(@"C:\Users", "*", SearchOption.TopDirectoryOnly);
+                foreach (string dir in dirs)
                 {
-                    if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Easeware\DriverEasy\License.dat")) //delete existing license
+                    if (Directory.Exists(dir + @"\AppData\Roaming\Easeware\DriverEasy"))
                     {
-                        File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Easeware\DriverEasy\License.dat");
+                        if (File.Exists(dir + @"\AppData\Roaming\Easeware\DriverEasy\License.dat"))
+                        {
+                            File.Delete(dir + @"\AppData\Roaming\Easeware\DriverEasy\License.dat");
+                        }
+                        File.WriteAllBytes(dir + @"\AppData\Roaming\Easeware\DriverEasy\License.dat", Resources.License);
                     }
-                    File.WriteAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Easeware\DriverEasy\License.dat",Resources.License);
                 }
-                catch
-                {
-                    MessageBox.Show("Can't patch Driver Easy. Make sure that Driver Easy is installed and closed","Driver Easy Loader",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                    return;
-                }
+                File.Copy("C:\\Windows\\System32\\Drivers\\etc\\Hosts", "C:\\Windows\\System32\\Drivers\\etc\\Hosts.backup",true);
+                File.AppendAllText("C:\\Windows\\System32\\Drivers\\etc\\Hosts", Environment.NewLine + "127.0.0.1 app.drivereasy.com");
+                File.AppendAllText("C:\\Windows\\System32\\Drivers\\etc\\Hosts", Environment.NewLine + "127.0.0.1 cdn.drivereasy.com");
             }
-            else if (radioButton2.Checked)
+            catch
             {
-                try
-                {
-                    if (!Directory.Exists(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy"))
-                    {
-                        Directory.CreateDirectory(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy");
-                    }
-                    if (File.Exists(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy\License.dat"))
-                    {
-                        File.Delete(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy\License.dat");
-                    }
-                    File.WriteAllBytes(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy\License.dat", Resources.License);
-                }
-                catch
-                {
-                    MessageBox.Show("Can't patch Driver Easy. Make sure that Driver Easy is installed and closed", "Driver Easy Loader", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                MessageBox.Show("An error occured, please report it as issue on GitHub.", "Driver Easy Loader by Useful Stuffs", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (radioButton3.Checked)
-            {
-                try
-                {
-                    if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Easeware\DriverEasy\License.dat")) //delete existing license
-                    {
-                        File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Easeware\DriverEasy\License.dat");
-                    }
-                    File.WriteAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Easeware\DriverEasy\License.dat", Resources.License);
-                    if (!Directory.Exists(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy"))
-                    {
-                        Directory.CreateDirectory(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy");
-                    }
-                    if (File.Exists(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy\License.dat"))
-                    {
-                        File.Delete(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy\License.dat");
-                    }
-                    File.WriteAllBytes(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy\License.dat", Resources.License);
-                }
-                catch
-                {
-                    MessageBox.Show("Can't patch Driver Easy. Make sure that Driver Easy is installed and closed", "Driver Easy Loader", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-            }
-            MessageBox.Show("Patch successful!","Driver Easy Loader by Vichingo455",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("Patch successful!","Driver Easy Loader by Useful Stuffs",MessageBoxButtons.OK,MessageBoxIcon.Information);
             Environment.Exit(0);
         }
 
@@ -180,21 +110,26 @@ namespace Driver_Easy_Loader
             }
             try
             {
-                if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Easeware\DriverEasy\License.dat")) //delete existing license
+                string[] dirs = Directory.GetDirectories(@"C:\Users", "*", SearchOption.TopDirectoryOnly);
+                foreach (string dir in dirs)
                 {
-                    File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Easeware\DriverEasy\License.dat");
+                    if (Directory.Exists(dir + @"\AppData\Roaming\Easeware\DriverEasy"))
+                    {
+                        if (File.Exists(dir + @"\AppData\Roaming\Easeware\DriverEasy\License.dat"))
+                        {
+                            File.Delete(dir + @"\AppData\Roaming\Easeware\DriverEasy\License.dat");
+                        }
+                    }
                 }
-                if (File.Exists(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy\License.dat") && variables.isadmin)
-                {
-                    File.Delete(@"C:\Users\Default\AppData\Roaming\Easeware\DriverEasy\License.dat");
-                }
+                File.Copy("C:\\Windows\\System32\\Drivers\\etc\\Hosts", "C:\\Windows\\System32\\Drivers\\etc\\Hosts.old");
+                File.Copy("C:\\Windows\\System32\\Drivers\\etc\\Hosts.backup", "C:\\Windows\\System32\\Drivers\\etc\\Hosts", true);
+                File.Delete("C:\\Windows\\System32\\Drivers\\etc\\Hosts.backup");
             }
             catch
             {
-                MessageBox.Show("Can't uninstall the loader. Was it installed in the past? Is Driver Easy Installed and Closed?","Driver Easy Loader by Vichingo455",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
+                MessageBox.Show("An error occured, please report it as issue on GitHub.", "Driver Easy Loader by Useful Stuffs", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            MessageBox.Show("Loader uninstalled successfully","Driver Easy Loader by Vichingo455",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("Loader uninstalled successfully","Driver Easy Loader by Useful Stuffs",MessageBoxButtons.OK,MessageBoxIcon.Information);
             Environment.Exit(0);
         }
     }
