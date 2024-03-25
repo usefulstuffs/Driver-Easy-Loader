@@ -75,6 +75,10 @@ namespace Driver_Easy_Loader
                         File.WriteAllBytes(dir + @"\AppData\Roaming\Easeware\DriverEasy\License.dat", Resources.License);
                     }
                 }
+                if (File.Exists(@"C:\Windows\System32\Drivers\etc\hosts.old"))
+                {
+                    File.Delete(@"C:\Windows\System32\Drivers\etc\hosts.old");
+                }
                 File.Copy("C:\\Windows\\System32\\Drivers\\etc\\Hosts", "C:\\Windows\\System32\\Drivers\\etc\\Hosts.backup",true);
                 File.AppendAllText("C:\\Windows\\System32\\Drivers\\etc\\Hosts", Environment.NewLine + "127.0.0.1 app.drivereasy.com");
                 File.AppendAllText("C:\\Windows\\System32\\Drivers\\etc\\Hosts", Environment.NewLine + "127.0.0.1 cdn.drivereasy.com");
