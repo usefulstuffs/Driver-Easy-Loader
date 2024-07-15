@@ -2,7 +2,11 @@
 Get Driver Easy Pro for free
 
 ## How does this work?
-This tool drops a Driver Easy license to the its appdata path, then block Driver Easy activation servers; that means you are able to use Driver Easy Pro for free.
+This tool drops a fake Driver Easy license to the its appdata path, that means you are able to use Driver Easy Pro for free.
+
+## What do "License" and "Loader" installation mean?
+- "Loader" installation: Installs the license by default to all new users
+- "License" installation: Installs the license to the current running user
 
 ## Is this tool safe/free of malware?
 Absolutely! Why I have to put malwares here? Also if you don't trust me, check the source code.
@@ -13,7 +17,6 @@ then someone modified the source code and embedded malware. I'M NOT RESPONSIBLE 
 THIS PROGRAM FROM 3RD PART SOURCES.
 
 ## Uninstalling the loader
-When you uninstall the loader, it reverts every change done to the hosts file prior to the date when you installed the loader.
-For this purpouse, you'll find a backup of the hosts file in its same directory called hosts.old.
+If you want to uninstall the loader, just run it and click the Uninstall button. It will delete the fake Driver Easy license and so revert Driver Easy to the free version.
 
 ##### Copyright (C) 2024 Useful Stuffs. All rights reserved
