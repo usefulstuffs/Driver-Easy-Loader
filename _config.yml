@@ -1,3 +1,5 @@
 remote_theme: pages-themes/hacker@v0.2.0
 plugins:
 - jekyll-remote-theme
+title: Driver Easy Loader
+description: Driver Easy Loader allows to easly activate Driver Easy Pro for FREE!
